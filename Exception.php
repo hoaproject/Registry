@@ -34,7 +34,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Registry {
+namespace Hoa\Registry;
+use Hoa\Core;
 
 /**
  * Class \Hoa\Registry\Exception.
@@ -46,6 +47,6 @@ namespace Hoa\Registry {
  * @license    New BSD License
  */
 
-class Exception extends \Hoa\Core\Exception { }
+class Exception extends Core\Exception {} 
 
-}
+
