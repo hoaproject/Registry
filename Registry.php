@@ -37,7 +37,7 @@
 namespace Hoa\Registry;
 
 use Hoa\Core;
-use Hoa\Registry;
+
 
 
 /**
@@ -199,6 +199,6 @@ Core\Consistency::flexEntity('Hoa\Registry\Registry');
  * in the \Hoa\Registry, e.g.: resolve('hoa://Library/Registry#AnID').
  */
 $protocol              = Core::getInstance()->getProtocol();
-$protocol['Library'][] = new Registry\_Protocol();
+$protocol['Library'][] = new \Hoa\Registry\_Protocol();
 
 
