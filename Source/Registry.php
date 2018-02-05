@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -8,7 +10,7 @@
  *
  * New BSD License
  *
- * Copyright © 2007-2017, Hoa community. All rights reserved.
+ * Copyright © 2007-2018, Hoa community. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,16 +45,11 @@ use Hoa\Protocol;
  * Class \Hoa\Registry.
  *
  * Hold a register of something.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Registry extends \ArrayObject
 {
     /**
      * Instance.
-     *
-     * @var \Hoa\Registry
      */
     private static $_instance = null;
 
@@ -60,8 +57,6 @@ class Registry extends \ArrayObject
 
     /**
      * Private constructor.
-     *
-     * @throws  \Hoa\Registry\Exception
      */
     public function __construct()
     {
@@ -77,10 +72,8 @@ class Registry extends \ArrayObject
 
     /**
      * Get instance of \Hoa\Registry.
-     *
-     * @return  object
      */
-    protected static function getInstance()
+    protected static function getInstance(): object
     {
         if (null === static::$_instance) {
             static::$_instance = new parent();
@@ -91,12 +84,8 @@ class Registry extends \ArrayObject
 
     /**
      * Set a new registry.
-     *
-     * @param   mixed   $index     Index of registry.
-     * @param   mixed   $value     Value of registry.
-     * @return  void
      */
-    public static function set($index, $value)
+    public static function set($index, $value): void
     {
         static::getInstance()->offsetSet($index, $value);
 
@@ -105,10 +94,6 @@ class Registry extends \ArrayObject
 
     /**
      * Get a registry.
-     *
-     * @param   mixed   $index     Index of registry.
-     * @return  mixed
-     * @throws  \Hoa\Registry\Exception
      */
     public static function get($index)
     {
@@ -127,22 +112,16 @@ class Registry extends \ArrayObject
 
     /**
      * Check if an index is registered.
-     *
-     * @param   mixed   $index     Index of registry.
-     * @return  bool
      */
-    public static function isRegistered($index)
+    public static function isRegistered($index): bool
     {
         return static::getInstance()->offsetExists($index);
     }
 
     /**
      * Unset an registry.
-     *
-     * @param   mixed   $index    Index of registry.
-     * @return  void
      */
-    public static function remove($index)
+    public static function remove($index): void
     {
         static::getInstance()->offsetUnset($index);
 
@@ -154,16 +133,11 @@ class Registry extends \ArrayObject
  * Class \Hoa\Registry\_Protocol.
  *
  * The `hoa://Library/Registry` node.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class _Protocol extends Protocol\Node
 {
     /**
      * Component's name.
-     *
-     * @var string
      */
     protected $_name = 'Registry';
 
@@ -171,11 +145,8 @@ class _Protocol extends Protocol\Node
 
     /**
      * ID of the component.
-     *
-     * @param   string  $id    ID of the component.
-     * @return  mixed
      */
-    public function reachId($id)
+    public function reachId(string $id)
     {
         return Registry::get($id);
     }

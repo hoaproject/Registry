@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -8,7 +10,7 @@
  *
  * New BSD License
  *
- * Copyright © 2007-2017, Hoa community. All rights reserved.
+ * Copyright © 2007-2018, Hoa community. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,22 +45,19 @@ use Hoa\Test;
  * Class \Hoa\Registry\Test\Unit\Registry.
  *
  * Test suite of the registry.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Registry extends Test\Unit\Suite
 {
-    public function case_no_instance()
+    public function case_no_instance(): void
     {
         $this
-            ->exception(function () {
+            ->exception(function (): void {
                 new LUT();
             })
                 ->isInstanceOf('Hoa\Registry\Exception');
     }
 
-    public function case_classic()
+    public function case_classic(): void
     {
         $this
             ->given(
@@ -73,7 +72,7 @@ class Registry extends Test\Unit\Suite
                     ->isEqualTo($value);
     }
 
-    public function case_value_is_an_object()
+    public function case_value_is_an_object(): void
     {
         $this
             ->given(
@@ -90,7 +89,7 @@ class Registry extends Test\Unit\Suite
                     ->isIdenticalTo($value);
     }
 
-    public function case_isRegistered()
+    public function case_isRegistered(): void
     {
         $this
             ->given(
@@ -120,7 +119,7 @@ class Registry extends Test\Unit\Suite
                     ->isFalse();
     }
 
-    public function case_protocol()
+    public function case_protocol(): void
     {
         $this
             ->given(
@@ -135,7 +134,7 @@ class Registry extends Test\Unit\Suite
                     ->isEqualTo($value);
     }
 
-    public function case_value_protocol_and_references()
+    public function case_value_protocol_and_references(): void
     {
         $this
             ->given(
