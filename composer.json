@@ -33,7 +33,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Hoa\\Registry\\": "."
+            "Hoa\\Registry\\": "Source",
+            "Hoa\\Registry\\Test\\": "Test"
         }
     },
     "extra": {
