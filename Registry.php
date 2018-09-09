@@ -104,6 +104,20 @@ class Registry extends \ArrayObject
     }
 
     /**
+     * Set a new multiple register
+     * @access public
+     * @param array $contain
+     * @return void
+     */
+    public static function store (array $contain) {
+
+        foreach ($contain as $index => $value) {
+            static::getInstance()->offsetSet($index, $value);
+        }
+        return;
+    }
+
+    /**
      * Get a registry.
      *
      * @param   mixed   $index     Index of registry.
