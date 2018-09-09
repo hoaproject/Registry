@@ -66,7 +66,7 @@ class Registry extends \ArrayObject
     public function __construct()
     {
         throw new Exception(
-            'Cannot instance the %s object. Use set, get, remove ' .
+            'Cannot instance the %s object. Use set, get, store, remove ' .
             'and isRegistered static methods instead.',
             0,
             __CLASS__
