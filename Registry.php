@@ -66,7 +66,7 @@ class Registry extends \ArrayObject
     public function __construct()
     {
         throw new Exception(
-            'Cannot instance the %s object. Use set, get, remove ' .
+            'Cannot instance the %s object. Use set, get, store, remove ' .
             'and isRegistered static methods instead.',
             0,
             __CLASS__
@@ -100,6 +100,20 @@ class Registry extends \ArrayObject
     {
         static::getInstance()->offsetSet($index, $value);
 
+        return;
+    }
+
+    /**
+     * Set a new multiple register
+     * @access public
+     * @param array $contain
+     * @return void
+     */
+    public static function store(array $contain) {
+
+        foreach ($contain as $index => $value) {
+            static::getInstance()->offsetSet($index, $value);
+        }
         return;
     }
 
