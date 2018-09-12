@@ -109,7 +109,7 @@ class Registry extends \ArrayObject
      * @param array $contain
      * @return void
      */
-    public static function store (array $contain) {
+    public static function store(array $contain) {
 
         foreach ($contain as $index => $value) {
             static::getInstance()->offsetSet($index, $value);
