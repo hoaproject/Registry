@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -43,9 +45,6 @@ use Hoa\Test;
  * Class \Hoa\Registry\Test\Unit\Registry.
  *
  * Test suite of the registry.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Registry extends Test\Unit\Suite
 {
@@ -55,7 +54,7 @@ class Registry extends Test\Unit\Suite
             ->exception(function () {
                 new LUT();
             })
-                ->isInstanceOf('Hoa\Registry\Exception');
+                ->isInstanceOf(LUT\Exception::class);
     }
 
     public function case_classic()
